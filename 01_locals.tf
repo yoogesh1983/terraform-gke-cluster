@@ -1,7 +1,7 @@
 locals {
   region               = "us-west2"
-  org_id               = "206720471760"
-  billing_account      = "01FDA3-9697F3-6F05B8"
+  org_id               = "terraform-gke-cluster-355717"
+  billing_account      = "01D7B3-2F1AF1-3CD2A9"
   host_project_name    = "host-staging"
   service_project_name = "k8s-staging"
   host_project_id      = "${local.host_project_name}-${random_integer.int.result}"
