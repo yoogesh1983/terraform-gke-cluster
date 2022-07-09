@@ -1,24 +1,19 @@
-# Google Cloud Platform Provider
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 provider "google" {
-  region = "us-west2"
+  project = "terraform-gke-cluster-355717"
+  region  = "us-central1"
 }
 
-# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer
-resource "random_integer" "int" {
-  min = 100
-  max = 1000000
-}
-
+# https://www.terraform.io/language/settings/backends/gcs
 terraform {
+  backend "gcs" {
+    bucket = "antonputra-tf-state-staging"
+    prefix = "terraform/state"
+  }
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 3.66"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.1"
+      version = "~> 4.0"
     }
   }
 }
